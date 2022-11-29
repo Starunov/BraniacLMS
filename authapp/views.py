@@ -28,7 +28,7 @@ class CustomLoginView(LoginView):
             messages.add_message(
                 self.request,
                 messages.WARNING,
-                mark_safe(f"Something goes worng:<br>{msg}"),
+                mark_safe(f"Something goes wrong:<br>{msg}"),
             )
         return self.render_to_response(self.get_context_data(form=form))
 
@@ -68,7 +68,7 @@ class RegisterView(TemplateView):
             messages.add_message(
                 request,
                 messages.WARNING,
-                mark_safe(f"Something goes worng:<br>{exp}"),
+                mark_safe(f"Something goes wrong:<br>{exp}"),
             )
             return HttpResponseRedirect(reverse_lazy("authapp:register"))
 
@@ -99,6 +99,6 @@ class ProfileEditView(LoginRequiredMixin, TemplateView):
             messages.add_message(
                 request,
                 messages.WARNING,
-                mark_safe(f"Something goes worng:<br>{exp}"),
+                mark_safe(f"Something goes wrong:<br>{exp}"),
             )
         return HttpResponseRedirect(reverse_lazy("authapp:profile_edit"))
