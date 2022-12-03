@@ -11,11 +11,12 @@ class MainPageView(TemplateView):
 class NewsPageView(TemplateView):
     template_name = "mainapp/news.html"
 
+
     def get_context_data(self, **kwargs):
         # Get all previous data
         context = super().get_context_data(**kwargs)
         # Create your own data
-        context["news_qs"] = News.objects.all()[:5]
+        context["news_qs"] = News.objects.all()
         return context
 
 
